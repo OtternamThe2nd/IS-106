@@ -1,7 +1,7 @@
 function Form() {
   return (
     <>
-        <div class="mx-auto p-5 max-w-md rounded-xl bg-slate-50 shadow-sm font-[garet]">
+        <div class="my-auto mx-auto p-5 py-10 max-w-md rounded-xl bg-slate-50 shadow-sm font-[garet]">
                 {/* Header */}
                 <div class = "w-100 flex justify-center my-2 mx-auto text-2xl text-slate-950 font-[garet] font-black align-middle">
                     <div>Sign in to Healthcare Portal</div>
@@ -26,10 +26,10 @@ function Form() {
                     <input type="text" class = "mx-5 w-90 px-5 p-2 rounded-l bg-slate-100" placeholder="Enter Password"></input>
                 </div>
                 <div class = "w-100 my-3">
-                    <div class="mx-auto bg-sky-950 text-rose-50 p-3 rounded-xl font-black text-center">Sign In</div>
+                    <button class="w-100 mx-auto bg-sky-950 text-rose-50 p-3 rounded-xl font-black text-center">Sign In</button>
                 </div>
                 <div class="w-100 my-3">
-                    <div class="mx-auto bg-sky-50 text-rose-50 p-2 rounded-xl border-1 border-sky-950 text-sky-950 text-center">Cancel</div>
+                    <button class="w-100 mx-auto bg-sky-50 text-rose-50 p-2 rounded-xl border-1 border-sky-950 text-sky-950 text-center">Cancel</button>
                 </div>
       </div>
     </>

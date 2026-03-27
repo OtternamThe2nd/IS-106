@@ -3,7 +3,12 @@
   font-family: garet;
   src: url("./assets/Garet-Book.ttf");
 }
+@font-face {
+  font-family: agrandir;
+  src: url("./assets/Agrandir-Regular.otf");
+}
 
 :root{
-  --custom-fonts-garet: garet
+  --custom-fonts-garet: garet;
+  --custom-fonts-manline:agrandir;
 }
