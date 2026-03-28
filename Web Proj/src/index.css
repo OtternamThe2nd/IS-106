@@ -7,6 +7,11 @@
   font-family: agrandir;
   src: url("./assets/Agrandir-Regular.otf");
 }
+@font-face {
+  font-family: glacial;
+  src: url("./assets/Glacial-Indifference.otf");
+}
+
 
 :root{
   --custom-fonts-garet: garet;
