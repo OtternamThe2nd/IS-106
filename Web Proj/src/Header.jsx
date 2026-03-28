@@ -1,4 +1,4 @@
-import logo from "./assets/logo.png";
+import logo from "./assets/taguig-city-logo.png";
 import hamburgicon from'./assets/hamburg-icon.svg';
 function Header(){
 

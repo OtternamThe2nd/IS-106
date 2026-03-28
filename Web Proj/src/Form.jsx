@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import logo from "./assets/taguig-city-logo.png"
 
 function Form() {
     const navigate = useNavigate();
@@ -8,6 +9,7 @@ function Form() {
   return (
     <>
         <div class="cursor-default my-auto mx-auto p-5 py-10 max-w-md rounded-xl bg-slate-50 shadow-sm font-[garet]">
+            <div style={{backgroundImage:`url(${logo})`}} class="w-25 h-25 bg-cover mx-auto"></div>
                 <div class = "w-100 flex justify-center my-2 mx-auto text-2xl text-slate-950 font-[garet] font-black align-middle">
                     <div>Sign in to Healthcare Portal</div>
                 </div>
