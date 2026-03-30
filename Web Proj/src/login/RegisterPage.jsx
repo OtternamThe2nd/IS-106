@@ -1,12 +1,12 @@
-import Header from "./Header.jsx"
-import RegisterForm from "./RegiterForm.jsx"
+import Header from "../temp/Header.jsx"
+import RegisterForm from "../temp/RegiterForm.jsx"
 
 function RegisterPage(){
     return(
         <>
             <Header/>
             <div class="w-full flex">
-                <div class="m-auto sm:mx-20 md:mx-20 mx-0">
+                <div class="m-auto xl:mx-auto lg:mx-auto sm:mx-20 md:mx-20 mx-auto">
                     <RegisterForm/>
                 </div>
             </div>

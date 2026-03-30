@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import logo from "./assets/taguig-city-logo.png"
+import logo from "../assets/taguig-city-logo.png"
 
 function Form() {
     const navigate = useNavigate();
