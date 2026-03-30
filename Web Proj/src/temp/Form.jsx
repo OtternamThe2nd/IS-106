@@ -6,6 +6,9 @@ function Form() {
     const handleClickRegister = () => {
         navigate('/register')
     }
+    const handleClickLogin = () => {
+        navigate('/profile')
+    }
   return (
     <>
         <div class="cursor-default my-auto mx-auto p-5 py-10 max-w-md rounded-xl bg-slate-50 shadow-sm font-[garet]">
@@ -29,7 +32,7 @@ function Form() {
                     <input type="text" class = "relative z-10 mx-5 w-90 px-5 p-2 rounded-l bg-slate-100" placeholder="Enter Password"></input>
                 </div>
                 <div class = "w-100 my-3">
-                    <button class="select-none cursor-pointer w-100 mx-auto bg-sky-950 text-rose-50 p-3 rounded-xl font-black text-center">Sign In</button>
+                    <button class="select-none cursor-pointer w-100 mx-auto bg-sky-950 text-rose-50 p-3 rounded-xl font-black text-center" onClick={handleClickLogin}>Sign In</button>
                 </div>
                 <div class="w-100 my-3">
                     <button class="select-none cursor-pointer w-100 mx-auto bg-sky-50 text-rose-50 p-2 rounded-xl border-1 border-sky-950 text-sky-950 text-center">Cancel</button>

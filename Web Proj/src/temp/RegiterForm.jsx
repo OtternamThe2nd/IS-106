@@ -1,4 +1,7 @@
+import { useState } from "react"
+
 function RegisterForm(){
+    const [focus,setFocus] = useState(0)
     return (
         <>
             <div class="my-5 p-5 rounded-md bg-sky-50">
@@ -14,12 +17,22 @@ function RegisterForm(){
                         <div class="my-auto h-1 flex-1 mx-auto rounded-full bg-slate-300"></div>
                     </div>
                     <div class="mx-5 flex m-3 flex-wrap justify-center gap-x-4 gap-y-2">
-                        <input type="text" class="focus-within:outline-sky-500 focus-within:outline-2 flex-1 w-64 m-auto p-2 my-3 px-5 text-xl bg-slate-200 rounded-xl" placeholder="First Name"></input>
+                        <div type="text" class="focus-within:outline-sky-500 focus-within:outline-2 flex-1 w-64 m-auto p-1 my-3 px-5 bg-slate-200 rounded-xl" >
+                            <div class="text-slate-500 text-sm">First Name</div>
+                            <input class="w-full focus:outline-0 text-md"></input>
+                        </div>
                         <input type="text" class="focus-within:outline-sky-500 focus-within:outline-2 flex-1 w-64 m-auto p-2 my-3 px-5 text-xl bg-slate-200 rounded-xl" placeholder="Last Name"/>
-                        <input type="text" class="focus-within:outline-sky-500 focus-within:outline-2 flex-1 w-64 m-auto my-3 p-2 px-5 text-xl bg-slate-200 rounded-xl" placeholder="Middle Name"/>
+                        <div class="relative group focus-within:outline-sky-500 focus-within:outline-2 flex-1 w-64 m-auto p-2 py-3 my-3 px-5 text-xl bg-slate-200 rounded-xl">
+                            <div class={`select-none hidden p-t-2 transition-transform transition-translate ease-in-out duration-300 absolute text-slate-500 text-sm ${focus==3?"-translate-y-3 -translate-x-4 bg-red scale-70 block":"scale-100"}`}>Name</div>
+                            <input class="focus:outline-0 text-sm p-t-2" placeholder="Name:"  onClick={()=>{console.log(focus);setFocus(3)}}></input>
+                        </div>
+                        <div class="flex relative group focus-within:outline-sky-500 focus-within:outline-2 flex-1 w-64 m-auto py-4 px-5 text-xl bg-slate-200 rounded-xl" >
+                            <div class={`my-auto transition-transform transition-translate duration-300  ease-in-out absolute text-slate-500 text-sm ${focus==4?"-translate-y-5 -translate-x-4 bg-red scale-70":"scale-100"}`}>Name:</div>
+                            <input class="focus:placeholder-transparent focus:outline-0 text-sm my-auto" placeholder="Name:" onClick={()=>{console.log(focus);setFocus(4)}}></input>
+                        </div>
                     </div>
                     <div class="m-3 flex justify-center">
-                        <input id="hasMI" type="checkbox" class="m-2 my-auto"></input>
+                        <input id="hasMI" type="checkbox" class="h-5 w-5 m-2 my-auto"></input>
                         <div for="hasMI" class="my-auto text-xl">No Middle Name</div>
                     </div>
                     <div class="gap-y-2 gap-x-4 mx-5 flex flex-wrap items-center text-slate-500">
