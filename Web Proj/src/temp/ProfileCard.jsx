@@ -2,13 +2,103 @@ import { useState } from "react"
 
 function ProfileCard(){
     const [activeTab, setActiveTab] = useState(1)
+    const [modal, openModal] = useState(0)
     const tabs = [
         {id:1,label:"Personal Information"},
         {id:2,label:"Security"}
     ]
     const tabContent = {
-        1:(<>Hello</>),
-        2:(<>Hewwo</>)
+        1:(<>
+            <div class="">
+                <div class="my-4">
+                    <div class="text-slate-500 text-sm">
+                        Full Name
+                    </div>
+                    <div class="font-bold text-md">
+                        Place Holder
+                    </div>
+                </div>
+                <div class="my-4">                
+                    <div class="text-slate-500 text-sm">
+                        Birthday
+                    </div>
+                    <div class="font-bold text-md">
+                        Place Holder
+                    </div>
+                </div>
+                <div class="my-4">                
+                    <div class="text-slate-500 text-sm">
+                        Gender
+                    </div>
+                    <div class="font-bold text-md">
+                        Place Holder
+                    </div>
+                </div>
+                <div class="my-4">
+                    <div class="text-slate-500 text-sm">
+                        Civil Status
+                    </div>
+                    <div class="font-bold text-md">
+                        Place Holder
+                    </div>
+                </div>
+                <div class="my-4">                
+                    <div class="text-slate-500 text-sm">
+                        Address
+                    </div>
+                    <div class="font-bold text-md">
+                        Place Holder
+                    </div>
+                </div>
+                <div class="my-4">                
+                    <div class="text-slate-500 text-sm">
+                        Contact No.
+                    </div>
+                    <div class="font-bold text-md">
+                        Place Holder
+                    </div>
+                </div>
+            </div>
+        </>),
+        2:(<>Hewwo
+            <div class="">
+                <div class="my-4">
+                    <div class="text-slate-500 text-sm">
+                        Email
+                    </div>
+                    <div class="font-bold text-md">
+                        Place Holder
+                    </div>
+                </div>
+                <div class="my-4">                
+                    <div class="text-slate-500 text-sm">
+                        Password
+                    </div>
+                    <div class="font-bold text-md">
+                        Place Holder
+                    </div>
+                </div>
+                <div class={`fixed top-0 left-0 w-screen h-screen ${modal===1?"block flex":"hidden"}`}>
+                    <div class="absolute z-0 w-screen h-screen opacity-80 bg-neutral-500">
+
+                    </div>
+                    <div class="z-1  m-auto">
+                        <div class="rounded-t-md flex flex-col z-1 w-md bg-sky-50 py-4 ">
+                            <div class="font-bold m-auto">Update Email</div>
+                        </div>
+                        <div class="p-4 my-1 w-md bg-sky-50 rounded-b-md ">
+                            <div class="ml-8">Email</div>
+                            <input type="text" class="p-2 px-4 h-10"></input>
+                            <div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="" onClick={()=>{openModal(1);console.log(modal)}}>Ello</div>
+            </div>
+        </>)
     }
     return(<>
         <div class="m-10 px-8 pt-8 bg-sky-50 rounded-t-3xl">
@@ -35,7 +125,7 @@ function ProfileCard(){
                 </div>
             </div>
         </div>
-        <div class="min-h-20 m-10 px-8 pt-8 bg-sky-50 rounded-b-3xl">
+        <div class="min-h-20 m-10 pb-4 px-8 pt-8 bg-sky-50 rounded-b-3xl">
             {tabContent[activeTab]}
         </div>
     </>)
