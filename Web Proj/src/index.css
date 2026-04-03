@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@plugin "tailwind-scrollbar";
+
 @font-face {
   font-family: garet;
   src: url("./assets/Garet-Book.ttf");
@@ -13,7 +15,24 @@
 }
 
 
-:root{
-  --custom-fonts-garet: garet;
-  --custom-fonts-manline:agrandir;
+.scrollbar {
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  &::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8 !important;
+  }
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(83, 83, 83, 0.07);
+    background-color: #f1f1f1;
+  }
+  &::-webkit-scrollbar {
+    width: 7px;
+    background-color: #f1f1f1;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #c1c1c1;
+  }
 }

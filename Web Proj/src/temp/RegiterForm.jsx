@@ -1,14 +1,23 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import logo from "../assets/taguig-city-logo.png"
 
 function RegisterForm(){
     const [focus,setFocus] = useState(0)
+    const navigate = useNavigate()
+    const handleClickSignIn = () => navigate("/")
     return (
         <>
             <div class="my-5 p-5 rounded-md bg-sky-50">
-                <div class="m-2 ml-15 text-3xl">Create Account</div>
-                <div class="flex contents-left">
-                    <div class="m-2 ml-15 text-xl text-slate-500">Already have an account?</div>
-                    <div class="m-2 text-xl text-sky-500 underline">Sign In here</div>
+                <div class="flex flex-wrap justify-center">
+                    <div style={{backgroundImage: `url(${logo})`}} class="bg-cover mx-5 my-5 h-30 w-30"></div>
+                    <div class="mt-auto mb-8">
+                        <div class=" mx-auto text-3xl">Create Account</div>
+                        <div class="flex contents-left">
+                            <div class="m-2 text-xl text-slate-500">Already have an account?</div>
+                            <div class="m-2 text-xl hover:text-sky-300 text-sky-500 underline cursor-pointer" onClick={()=>handleClickSignIn()}>Sign In here</div>
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <div class="flex contents-center m-2">

@@ -88,7 +88,7 @@ function ProfileCard(){
                         </div>
                         <div class="p-4 my-1 w-md bg-sky-50 rounded-b-md ">
                             <div class="ml-8">Email</div>
-                            <input type="text" class="p-2 px-4 h-10"></input>
+                            <input type="text" class="p-2 px-4 h-10 w0fu"></input>
                             <div>
                                 <div></div>
                                 <div></div>
@@ -101,7 +101,7 @@ function ProfileCard(){
         </>)
     }
     return(<>
-        <div class="m-10 px-8 pt-8 bg-sky-50 rounded-t-3xl">
+        <div class="mx-10 mt-5 mb-2 px-8 pt-8 bg-sky-50 rounded-t-3xl">
             <div class="flex flex-wrap">
                 <div class="bg-red-500 mb-2 w-18 h-18 rounded-full"></div>
                 <div class="mt-auto mb-3 mx-2">
@@ -125,7 +125,7 @@ function ProfileCard(){
                 </div>
             </div>
         </div>
-        <div class="min-h-20 m-10 pb-4 px-8 pt-8 bg-sky-50 rounded-b-3xl">
+        <div class="min-h-20 mx-10 pb-4 px-8 pt-8 bg-sky-50 rounded-b-3xl">
             {tabContent[activeTab]}
         </div>
     </>)
