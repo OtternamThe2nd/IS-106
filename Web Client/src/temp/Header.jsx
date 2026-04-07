@@ -4,7 +4,7 @@ function Header(){
 
     return (
         <>
-            <div class="flex h-16 bg-red-700 bg-gradient-to-r from-rose-700 to-red-700">
+            <div class="flex h-16 bg-gradient-to-r from-rose-700 to-red-700">
                 <div class="flex h-16 w-110 rounded-full">
                     <div style={{backgroundImage: `url(${logo})`}} class="m-auto h-12 w-12 rounded-full bg-cover bg-center"></div>
                     <div class="my-auto text-3xl font-[agrandir] font-black text-rose-50">Central Healthcare Portal</div>

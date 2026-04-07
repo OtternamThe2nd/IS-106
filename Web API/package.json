@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "express": "^5.2.1",
-    "mongoose": "^9.4.1"
+    "mongoose": "^9.4.1",
+    "nodemailer": "^8.0.4"
   },
   "devDependencies": {
     "dotenv": "^17.4.0",

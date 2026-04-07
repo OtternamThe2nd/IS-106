@@ -20,7 +20,9 @@ function PillDoubleScreen(){
         0:(<>
         </>),
         1:(<>
-            <ProfileCard/>
+            <div class="">
+                <ProfileCard></ProfileCard>
+            </div>
         </>),
         2:(<>
             Hewwo
@@ -32,9 +34,9 @@ function PillDoubleScreen(){
             <div class="h-[calc(30%)]">
                 <div class="flex flex-col min-h-0 w-10 bg-sky-50 rounded-md">
                     {dropdownTabs.map((tab)=>
-                        (<div class={`flex-1 text-center my-2 py-2 select-none ${activeTab===tab.key?"text-red-500 font-bold border-l-1 border-red-500":""} cursor-pointer `} onClick={()=>{(activeTab===tab.key)?showDropdownTab(0):showDropdownTab(tab.key)}}>
+                        (<button class={`flex-1 text-center my-2 py-2 select-none ${activeTab===tab.key?"text-red-500 font-bold border-l-1 border-red-500":""} cursor-pointer `} onClick={()=>{(activeTab===tab.key)?showDropdownTab(0):showDropdownTab(tab.key)}}>
                             {`${tab.char}`}
-                        </div>)
+                        </button>)
                     )}
                 </div>
             </div>
