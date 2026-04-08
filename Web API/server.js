@@ -3,7 +3,14 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const { MongoClient, ServerApiVersion } = require('mongodb');
+const fs = require("fs")
 const nodemailer = require('nodemailer')
+
+// const { MailtrapClient } = require("mailtrap");
+
+// const apiclient = new MailtrapClient({
+//   token: process.env.MAILTRAP_KEY,
+// });
 
 const client = new MongoClient(process.env.DATABASE_URL, {
   serverApi: {
@@ -12,9 +19,10 @@ const client = new MongoClient(process.env.DATABASE_URL, {
     deprecationErrors: true,
   }
 })
+
 const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
-    port: 587,
+    port: 80,
     secure: false,
     auth: {
         user: process.env.SMTP_USER,
@@ -41,34 +49,43 @@ async function run() {
     const EmployeeCollection = database.collection("employee")
     const VerifyingAccounts = database.collection("verifying")
 
-    try{
-        const res = await collection.insertOne({name:"Justin"})
-        console.log(res)
-    }catch (err){
-        console.error(`Something went wrong: \n${err}`)
-    }
+    // try{
+    //     // const res = await collection.insertOne({name:"Justin"})
+    //     // console.log(res)
+    // }catch (err){
+    //     console.error(`Something went wrong: \n${err}`)
+    // }
     const mail = createVerificationMail({email:"justinbientalahib@gmail.com"})
-    await sendEmail(mail)
+    try {
+        console.log(await sendEmail(mail))
+    }catch(err){
+        console.error(`Error while sending mail ${err}`)
+    }
 }
 
 run()
-
 const usersRouter = require('./routes/users')
 
 app.use(express.json(), usersRouter)
 
 function createVerificationMail(personalInfo,otp=generateOTP(personalInfo.email),attachments=[{
-    filename: 'taguig-city-logo.png',
-    path: './assets/taguig-city-logo.png',
-    cid: 'taguig_city_logo'       
+    filename: "taguig-logo.png",
+    // content: fs.readFileSync("./assets/taguig-city-logo.png"),
+    path:"./assets/taguig-city-logo.png",
+    disposition: "inline",
+    type: "image",
+    content_id:"taguig_city_logo"       
 },{
-    filename: 'healthcare--logo.png',
-    path: './assets/health-office-logo.png',
-    cid: 'healthcare_logo'
+    filename: "healthcare-logo.png",
+    // content: fs.readFileSync("./assets/health-office-logo.png"),
+    path: "./assets/health-office-logo.png",
+    disposition: "inline",
+    type: "image",
+    content_id:"healthcare_logo"
 }]){
     return {
-        from:process.env.SMTP_USER,
-        to:`${personalInfo.email}`,
+        from:{email:process.env.SMTP_USER},
+        to:[{email:`${personalInfo.email}`}],
         subject:`Email Account Verification`,
         text:"",
         html:   `
@@ -155,7 +172,8 @@ function createVerificationMail(personalInfo,otp=generateOTP(personalInfo.email)
                         </div>
                     </div>
                 </div>`,
-        attachments:attachments
+        attachments:attachments,
+        category:"Verification"
     }
 }
 
@@ -168,13 +186,11 @@ function generateOTP(email,length = 6){
     return out
 }
 
-async function sendEmail(mail={from:String,to:String,subject:String,text:String,html:String}){
+async function sendEmail(mail={from:String,to:String,subject:String,text:String,html:String,subject:String}){
     try {
-        const info = await transporter.sendMail(mail);
-        console.log("Message sent: %s", info.messageId);
-        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-    } catch (err) {
-        console.error("Error while sending mail:", err);
+        return await client.send(mail)
+    } catch(err){
+        return err
     }
 }
 // async function sendSampleMessage(){
