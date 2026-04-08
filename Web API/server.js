@@ -21,9 +21,7 @@ const client = new MongoClient(process.env.DATABASE_URL, {
 })
 
 const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 80,
-    secure: false,
+    service:"gmail",
     auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
@@ -85,7 +83,7 @@ function createVerificationMail(personalInfo,otp=generateOTP(personalInfo.email)
 }]){
     return {
         from:{email:process.env.SMTP_USER},
-        to:[{email:`${personalInfo.email}`}],
+        to:[personalInfo.email],
         subject:`Email Account Verification`,
         text:"",
         html:   `
@@ -188,7 +186,7 @@ function generateOTP(email,length = 6){
 
 async function sendEmail(mail={from:String,to:String,subject:String,text:String,html:String,subject:String}){
     try {
-        return await client.send(mail)
+        return await transporter.sendMail(mail)
     } catch(err){
         return err
     }
