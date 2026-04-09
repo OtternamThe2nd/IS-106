@@ -4,13 +4,14 @@ const express = require('express')
 const router = express.Router()
 
 router.get('/',async (req,res)=>{
-    await fetch(process.env.MAILER_API, {
+    const fetchres = await fetch(process.env.MAILER_API, {
     method: 'GET',
     headers: {
         'Bypass-Tunnel-Reminder': 'true'
     }
     });
-    const userInfo = req.body
+    console.log(fetchres)
+    res.send("hello")
 })
 
 router.post('/login/:id',async (req,res)=>{

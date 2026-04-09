@@ -26,7 +26,7 @@ async function run() {
     const VerifyingAccounts = database.collection("verifying")
     const usersRouter = require('./routes/users')
     app.use(express.json(), usersRouter)
-    app.listen(8080,()=>console.log('Server Started'))
+    app.listen(8080,()=>console.log('Server Started On Port: 8080'))
 }
 
 run()
