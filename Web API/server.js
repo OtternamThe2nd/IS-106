@@ -20,12 +20,6 @@ async function run() {
     } catch (err){
         console.error(err)
     }
-    try {
-        await transporter.verify();
-        console.log("Server is ready to take our messages");
-    } catch (err) {
-        console.error("Verification failed:", err);
-    }
     const database = client.db("healthcare-web")
     const UserCollection = database.collection("User")
     const EmployeeCollection = database.collection("employee")
