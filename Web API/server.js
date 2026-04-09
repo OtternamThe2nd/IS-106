@@ -3,7 +3,6 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const fs = require("fs")
 const nodemailer = require('nodemailer')
 
 // const { MailtrapClient } = require("mailtrap");
@@ -207,4 +206,4 @@ async function sendEmail(mail={from:String,to:String,subject:String,text:String,
 //     }
 // }
 
-app.listen(3000,()=>console.log('Server Started'))
+app.listen(8080,()=>console.log('Server Started'))
