@@ -23,7 +23,7 @@ Mailer.sendVerificationMail = async (personalInfo,otp = Mailer.generateOTP(perso
     return {res:res,otp:otp}
 }
 
-Mailer.createVerificationMail = (personalInfo,otp=Mailer.generateOTP(personalInfo.email),attachments=[{filename: "taguig-logo.png",path:"./assets/taguig-city-logo.png",disposition: "inline",type: "image",content_id:"taguig_city_logo"},{filename: "healthcare-logo.png",path: "./assets/health-office-logo.png",disposition: "inline",type: "image",content_id:"healthcare_logo"}]) => {return {
+Mailer.createVerificationMail = (personalInfo,otp=Mailer.generateOTP(personalInfo.email),attachments=[{filename: "taguig-logo.png",path:"./assets/taguig-city-logo.png",disposition: "inline",type: "image",cid:"taguig_city_logo"},{filename: "healthcare-logo.png",path: "./assets/health-office-logo.png",disposition: "inline",type: "image",cid:"healthcare_logo"}]) => {return {
         from:{email:process.env.SMTP_USER},
         to:[personalInfo.email],
         subject:`Email Account Verification`,

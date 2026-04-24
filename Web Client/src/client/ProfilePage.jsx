@@ -5,7 +5,6 @@ import PillDoubleScreen from "../temp/PillDoubleScreen.jsx"
 function Profile(){
     return (<>
         <HeaderHome/>
-        <PillDoubleScreen/>
         <ProfileCard/>
     </>)
 }
